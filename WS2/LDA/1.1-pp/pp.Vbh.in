@@ -1,0 +1,14 @@
+&inputpp
+   prefix  = 'WS2'
+   outdir='.'
+   filplot = 'Vbh'
+   plot_num = 11
+/
+&plot
+  nfile=1
+  filepp(1)='Vbh'
+  weight(1)=1.0
+  iflag=3
+  output_format=6
+  fileout='Vbh.cube'
+/
