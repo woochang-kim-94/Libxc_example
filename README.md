@@ -1,5 +1,8 @@
 # Libxc tutorial
-Directory for Libxc totorial
+Directory for Libxc totorial. For the detaild formalism and notation, please refer
+
+    1. https://www.tddft.org/programs/libxc/manual/libxc-5.1.x/
+    2. https://doi.org/10.1016/j.cpc.2012.05.007
 
 We have following example systems
 

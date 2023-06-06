@@ -1,1 +1,0 @@
-../../sc/sqrt7xsqrt7x1/2.1-wfn/kuc_map_crys.txt

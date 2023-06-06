@@ -16,7 +16,7 @@
    !vxcg_file = 'VXC'
    vxc_flag = .true.
    vxc_file = 'vxc.dat'
-   vxc_integral = 'g'
+   vxc_integral = 'r'
    vxc_diag_nmin = 1
    vxc_diag_nmax = 20
    vxc_offdiag_nmin = 1
