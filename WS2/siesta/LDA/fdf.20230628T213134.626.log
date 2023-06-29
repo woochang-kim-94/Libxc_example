@@ -1,0 +1,47 @@
+SystemName           # default value
+SystemLabel     WS2                                                                             
+SpinPolarized              F     # default value
+NonCollinearSpin              F     # default value
+SpinOrbit              F     # default value
+#:block? SpinPolarized              F
+#:defined? SpinPolarized              F
+#:block? NonCollinearSpin              F
+#:defined? NonCollinearSpin              F
+#:block? SpinOrbit              F
+#:defined? SpinOrbit              F
+Spin     none                                 # default value
+TimeReversalSymmetry              T     # default value
+DebugObjects.Node         0     # default value
+DebugObjects              F     # default value
+XML.Write              T
+timer_report_threshold          0.000000000         # default value
+UseParallelTimer              T     # default value
+UseTreeTimer              F     # default value
+timing-split-scf-steps              F     # default value
+use-walltime              F     # default value
+alloc_report_level         0     # default value
+alloc_report_threshold          0.000000000         # default value
+xc.functional     LDA                                                                             
+xc.authors     PZ                                                                              
+#:block? XC.hybrid              F
+#:defined? XC.hybrid              F
+#:block? XC.cocktail              F
+#:defined? XC.cocktail              F
+MM.Cutoff          30.00000000     Bohr     # default value
+MM.UnitsEnergy     eV     # default value
+MM.UnitsDistance     Ang     # default value
+Atom.Debug              F     # default value
+WriteIonPlotFiles              F     # default value
+Atom.Debug.KB.Generation              F     # default value
+KB.New.Reference.Orbitals              F     # default value
+user-basis              F     # default value
+user-basis-netcdf              F     # default value
+#:block? DFTU.proj              F
+#:defined? DFTU.proj              F
+#:block? LDAU.proj              F
+#:defined? LDAU.proj              F
+Number_of_species              3
+%block Chemical_species_label
+  1 74 W
+  2 16 S
+%endblock Chemical_species_label

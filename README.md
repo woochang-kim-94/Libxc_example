@@ -19,7 +19,6 @@ In each directory, we compute
 
 We only consider collinear calculation.
 
-
 For method 2.
 
     we first do pp.x and print Vxc(r) = Vtot(r) - Vbare(r) - Vhatree(r) in a FFTgrid and then

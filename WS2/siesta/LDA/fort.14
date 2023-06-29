@@ -1,0 +1,44 @@
+%YAML 1.2
+---
+
+siesta:
+  version: "MaX-1.0-55-g0612142bc"
+  arch: "----"
+  compiler: "GNU-10.3.0"
+  fflags: "-O3 -funroll-loops -funsafe-math-optimizations -fallow-argument-mismatch -fallow-argument-mismatch;"
+  fppflags: "----"
+  libs: "----"
+  build: "mpi"
+  openmp: "no"
+  gemm3m: "no"
+  netcdf: "yes"
+  netcdf4: "yes"
+  netcdf4_mpi: "no"
+  metis: "no"
+  chess: "no"
+  elpa: "yes"
+  flook: "no"
+  pexsi: "no"
+
+energies:
+  Ebs:          -0.43659817E+02
+  Eions:           0.35880330E+03
+  Ena:           0.11637669E+03
+  Ekin:           0.56440465E+02
+  Enl:           0.31475310E+02
+  Eso:           0.00000000E+00
+  Edftu:           0.00000000E+00
+  DEna:           0.40273996E+01
+  DUscf:           0.99056077E-01
+  DUext:           0.00000000E+00
+  Exc:          -0.45659665E+02
+  Ecorrec:           0.00000000E+00
+  Emadel:           0.00000000E+00
+  Emeta:           0.00000000E+00
+  Emolmec:           0.00000000E+00
+  Ekinion:           0.00000000E+00
+  Eharris:          -0.19604404E+03
+  Etot:          -0.19604404E+03
+  FreeEng:          -0.19604404E+03
+
+...

@@ -10,11 +10,15 @@ def main():
 
     gvec_rho = np.loadtxt('./rho_gvec.txt',dtype=np.int32)
     rho_pw2bgw = np.load('./rho_pw2bgw.npy')
+    print(np.sum(rho_pw2bgw))
     #n1, n2, n3 = vxc.data.shape
     n1, n2, n3 = [18, 18, 135]
     rho_g_FFTbox = put_FFTbox2(rho_pw2bgw, gvec_rho, [n1,n2,n3], noncolin=False)
     rho_r        = ifft_g2r(rho_g_FFTbox)[0,:,:,:]
-    print(rho_r/rho_pp_data)
+    #print(rho_r/rho_pp_data)
+    print(np.min(np.abs(rho_r/rho_pp_data)))
+    print(np.average(np.abs(rho_r/rho_pp_data)))
+    print(np.max(np.abs(rho_r/rho_pp_data)))
     #vxc_diag = np.zeros(len(ibnd_lst),dtype=np.complex128)
 
     #for ibnd in ibnd_lst:

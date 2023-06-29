@@ -1,6 +1,6 @@
 &control
    prefix = 'WS2'
-   pseudo_dir = '/global/u2/w/wkim94/pseudo/sg15_oncv_upf_2020-02-06/'
+   pseudo_dir = '/global/cfs/cdirs/mp149/gsharing/wkim/codes/ONCVPseudoPack/SG15_v1.2/UPF/LDA'
    !pseudo_dir = '/global/u2/w/wkim94/pseudo/pseudodojo/nc-sr-04_pw_standard_upf/'
    !pseudo_dir = '/work2/08702/wkim94/frontera/pseudo/pseudodojo/nc-sr-04_pbe_standard_upf/'
    calculation = 'scf'
@@ -33,8 +33,8 @@ CELL_PARAMETERS {angstrom}
 1.575000000000  2.7279800219    0.00 
 0.000000000000  0.000000000000  25.0 
 ATOMIC_SPECIES 
-   W 183.84 'W_ONCV_PBE-1.2.upf'
-   S 78.96  'S_ONCV_PBE-1.2.upf'
+   W 183.84 'W_LDA_SR.SG15v1.2.UPF'
+   S 78.96  'S_LDA_SR.SG15v1.2.UPF'
 ATOMIC_POSITIONS crystal
  W   0.33333333333333 0.33333333333333 0.5000000000 
  S   0.66666666666667 0.66666666666667 0.4360000000 

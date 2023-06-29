@@ -1,0 +1,615 @@
+
+     Program PWSCF v.7.1 starts on 21Jun2023 at 20:40:10 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on     144 processor cores
+     Number of MPI processes:                72
+     Threads/MPI process:                     2
+
+     MPI processes distributed on     1 nodes
+     483703 MiB available memory on the printing compute node when the environment starts
+
+     Reading input from wfn.in
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  4
+
+     Atomic positions and unit cell read from directory:
+     ./WS2.save/
+     Atomic positions from file used, from input discarded
+
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= XC-001L-012L
+                           (   1  12   0   0   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     K-points division:     npool     =      36
+     R & G space division:  proc/nbgrp/npool/nimage =       2
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          99      99     36                 8831     8831    2002
+     Max         100     100     37                 8842     8842    2017
+     Sum         199     199     73                17673    17673    4019
+
+     Using Slab Decomposition
+
+
+
+     bravais-lattice index     =            0
+     lattice parameter (alat)  =       5.9526  a.u.
+     unit-cell volume          =    1449.7341 (a.u.)^3
+     number of atoms/cell      =            3
+     number of atomic types    =            2
+     number of electrons       =        40.00
+     number of Kohn-Sham states=           20
+     kinetic-energy cutoff     =      20.0000  Ry
+     charge density cutoff     =      80.0000  Ry
+     Exchange-correlation= XC-001L-012L
+                           (   1  12   0   0   0   0   0)
+
+     celldm(1)=   5.952637  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (   0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   7.936508 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000 -0.577350  0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000  0.000000  0.126000 )  
+
+
+     PseudoPot. # 1 for W  read from file:
+     /global/u2/w/wkim94/pseudo/sg15_oncv_upf_2020-02-06/W_ONCV_PBE-1.2.upf
+     MD5 check sum: b6096f31a98cdd82a46cfdcd1f902baf
+     Pseudo is Norm-conserving, Zval = 28.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  8 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+                l(7) =   3
+                l(8) =   3
+
+     PseudoPot. # 2 for S  read from file:
+     /global/u2/w/wkim94/pseudo/sg15_oncv_upf_2020-02-06/S_ONCV_PBE-1.2.upf
+     MD5 check sum: f9d020296ee6110346977bfd66d424f6
+     Pseudo is Norm-conserving, Zval =  6.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     atomic species   valence    mass     pseudopotential
+        W             28.00   183.84000     W ( 1.00)
+        S              6.00    78.96000     S ( 1.00)
+
+     No symmetry found
+
+
+                                    s                        frac. trans.
+
+      isym =  1     identity                                     
+
+ cryst.   s( 1) = (     1          0          0      )
+                  (     0          1          0      )
+                  (     0          0          1      )
+
+ cart.    s( 1) = (  1.0000000  0.0000000  0.0000000 )
+                  (  0.0000000  1.0000000  0.0000000 )
+                  (  0.0000000  0.0000000  1.0000000 )
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           W   tau(   1) = (   0.5000000   0.2886751   3.9682540  )
+         2           S   tau(   2) = (   1.0000000   0.5773503   3.4603175  )
+         3           S   tau(   3) = (   1.0000000   0.5773503   4.4761905  )
+
+   Crystallographic axes
+
+     site n.     atom                  positions (cryst. coord.)
+         1           W   tau(   1) = (  0.3333333  0.3333333  0.5000000  )
+         2           S   tau(   2) = (  0.6666667  0.6666667  0.4360000  )
+         3           S   tau(   3) = (  0.6666667  0.6666667  0.5640000  )
+
+     number of k points=    36
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0555556
+        k(    2) = (   0.0000000   0.1924501   0.0000000), wk =   0.0555556
+        k(    3) = (   0.0000000   0.3849002   0.0000000), wk =   0.0555556
+        k(    4) = (   0.0000000   0.5773503   0.0000000), wk =   0.0555556
+        k(    5) = (   0.0000000   0.7698004   0.0000000), wk =   0.0555556
+        k(    6) = (   0.0000000   0.9622504   0.0000000), wk =   0.0555556
+        k(    7) = (   0.1666667  -0.0962250   0.0000000), wk =   0.0555556
+        k(    8) = (   0.1666667   0.0962250   0.0000000), wk =   0.0555556
+        k(    9) = (   0.1666667   0.2886751   0.0000000), wk =   0.0555556
+        k(   10) = (   0.1666667   0.4811252   0.0000000), wk =   0.0555556
+        k(   11) = (   0.1666667   0.6735753   0.0000000), wk =   0.0555556
+        k(   12) = (   0.1666667   0.8660254   0.0000000), wk =   0.0555556
+        k(   13) = (   0.3333333  -0.1924501   0.0000000), wk =   0.0555556
+        k(   14) = (   0.3333333   0.0000000   0.0000000), wk =   0.0555556
+        k(   15) = (   0.3333333   0.1924501   0.0000000), wk =   0.0555556
+        k(   16) = (   0.3333333   0.3849002   0.0000000), wk =   0.0555556
+        k(   17) = (   0.3333333   0.5773503   0.0000000), wk =   0.0555556
+        k(   18) = (   0.3333333   0.7698004   0.0000000), wk =   0.0555556
+        k(   19) = (   0.5000000  -0.2886751   0.0000000), wk =   0.0555556
+        k(   20) = (   0.5000000  -0.0962250   0.0000000), wk =   0.0555556
+        k(   21) = (   0.5000000   0.0962250   0.0000000), wk =   0.0555556
+        k(   22) = (   0.5000000   0.2886751   0.0000000), wk =   0.0555556
+        k(   23) = (   0.5000000   0.4811252   0.0000000), wk =   0.0555556
+        k(   24) = (   0.5000000   0.6735753   0.0000000), wk =   0.0555556
+        k(   25) = (   0.6666667  -0.3849002   0.0000000), wk =   0.0555556
+        k(   26) = (   0.6666667  -0.1924501   0.0000000), wk =   0.0555556
+        k(   27) = (   0.6666667  -0.0000000   0.0000000), wk =   0.0555556
+        k(   28) = (   0.6666667   0.1924501   0.0000000), wk =   0.0555556
+        k(   29) = (   0.6666667   0.3849002   0.0000000), wk =   0.0555556
+        k(   30) = (   0.6666667   0.5773503   0.0000000), wk =   0.0555556
+        k(   31) = (   0.8333333  -0.4811252   0.0000000), wk =   0.0555556
+        k(   32) = (   0.8333333  -0.2886751   0.0000000), wk =   0.0555556
+        k(   33) = (   0.8333333  -0.0962250   0.0000000), wk =   0.0555556
+        k(   34) = (   0.8333333   0.0962250   0.0000000), wk =   0.0555556
+        k(   35) = (   0.8333333   0.2886751   0.0000000), wk =   0.0555556
+        k(   36) = (   0.8333333   0.4811252   0.0000000), wk =   0.0555556
+
+                       cryst. coord.
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.0555556
+        k(    2) = (   0.0000000   0.1666667   0.0000000), wk =   0.0555556
+        k(    3) = (   0.0000000   0.3333333   0.0000000), wk =   0.0555556
+        k(    4) = (   0.0000000   0.5000000   0.0000000), wk =   0.0555556
+        k(    5) = (   0.0000000   0.6666667   0.0000000), wk =   0.0555556
+        k(    6) = (   0.0000000   0.8333333   0.0000000), wk =   0.0555556
+        k(    7) = (   0.1666667   0.0000000   0.0000000), wk =   0.0555556
+        k(    8) = (   0.1666667   0.1666667   0.0000000), wk =   0.0555556
+        k(    9) = (   0.1666667   0.3333333   0.0000000), wk =   0.0555556
+        k(   10) = (   0.1666667   0.5000000   0.0000000), wk =   0.0555556
+        k(   11) = (   0.1666667   0.6666667   0.0000000), wk =   0.0555556
+        k(   12) = (   0.1666667   0.8333333   0.0000000), wk =   0.0555556
+        k(   13) = (   0.3333333  -0.0000000   0.0000000), wk =   0.0555556
+        k(   14) = (   0.3333333   0.1666667   0.0000000), wk =   0.0555556
+        k(   15) = (   0.3333333   0.3333333   0.0000000), wk =   0.0555556
+        k(   16) = (   0.3333333   0.5000000   0.0000000), wk =   0.0555556
+        k(   17) = (   0.3333333   0.6666667   0.0000000), wk =   0.0555556
+        k(   18) = (   0.3333333   0.8333333   0.0000000), wk =   0.0555556
+        k(   19) = (   0.5000000  -0.0000000   0.0000000), wk =   0.0555556
+        k(   20) = (   0.5000000   0.1666667   0.0000000), wk =   0.0555556
+        k(   21) = (   0.5000000   0.3333333   0.0000000), wk =   0.0555556
+        k(   22) = (   0.5000000   0.5000000   0.0000000), wk =   0.0555556
+        k(   23) = (   0.5000000   0.6666667   0.0000000), wk =   0.0555556
+        k(   24) = (   0.5000000   0.8333333   0.0000000), wk =   0.0555556
+        k(   25) = (   0.6666667  -0.0000000   0.0000000), wk =   0.0555556
+        k(   26) = (   0.6666667   0.1666667   0.0000000), wk =   0.0555556
+        k(   27) = (   0.6666667   0.3333333   0.0000000), wk =   0.0555556
+        k(   28) = (   0.6666667   0.5000000   0.0000000), wk =   0.0555556
+        k(   29) = (   0.6666667   0.6666667   0.0000000), wk =   0.0555556
+        k(   30) = (   0.6666667   0.8333333   0.0000000), wk =   0.0555556
+        k(   31) = (   0.8333333   0.0000000   0.0000000), wk =   0.0555556
+        k(   32) = (   0.8333333   0.1666667   0.0000000), wk =   0.0555556
+        k(   33) = (   0.8333333   0.3333333   0.0000000), wk =   0.0555556
+        k(   34) = (   0.8333333   0.5000000   0.0000000), wk =   0.0555556
+        k(   35) = (   0.8333333   0.6666667   0.0000000), wk =   0.0555556
+        k(   36) = (   0.8333333   0.8333333   0.0000000), wk =   0.0555556
+
+     Dense  grid:    17673 G-vectors     FFT dimensions: (  18,  18, 135)
+
+     Dynamical RAM for                 wfc:       0.33 MB
+
+     Dynamical RAM for     wfc (w. buffer):       0.33 MB
+
+     Dynamical RAM for           str. fact:       0.27 MB
+
+     Dynamical RAM for           local pot:       0.00 MB
+
+     Dynamical RAM for          nlocal pot:       0.80 MB
+
+     Dynamical RAM for                qrad:       3.45 MB
+
+     Dynamical RAM for          rho,v,vnew:       0.91 MB
+
+     Dynamical RAM for           G-vectors:       0.57 MB
+
+     Dynamical RAM for          h,s,v(r/c):       0.29 MB
+
+     Dynamical RAM for          <psi|beta>:       0.01 MB
+
+     Dynamical RAM for                 psi:       1.34 MB
+
+     Dynamical RAM for                hpsi:       1.34 MB
+
+     Dynamical RAM for      wfcinit/wfcrot:       0.68 MB
+
+     Estimated static dynamical RAM per process >       7.58 MB
+
+     Estimated max dynamical RAM per process >      10.57 MB
+
+     Estimated total dynamical RAM >     760.72 MB
+
+     WARNING: libxc functional with ID   12 depends
+      on external parameters: check the user_guide of
+      QE if you need to modify them or to check their
+      default values.
+
+     The potential is recalculated from file :
+     ./WS2.save/charge-density
+
+     Starting wfcs are random
+
+     Band Structure Calculation
+     Davidson diagonalization with overlap
+
+     Computing kpt #:     1  of     1 on this pool
+     total cpu time spent up to now is        0.8 secs
+
+     ethr =  2.50E-09,  avg # of iterations = 24.3
+
+     total cpu time spent up to now is        0.8 secs
+
+     End of band structure calculation
+
+          k = 0.0000 0.0000 0.0000 (  2245 PWs)   bands (ev):
+
+   -86.1828 -47.8660 -47.7546 -47.7546 -21.1558 -20.8986 -20.8986 -20.2182
+   -19.7861 -19.7861 -19.4467 -15.5637 -14.4611  -7.2503  -4.3072  -4.3072
+    -3.4065  -3.2703  -3.2703  -2.4371
+
+          k = 0.0000 0.1925 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+          k = 0.0000 0.3849 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5446 -19.5117 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.0000 0.5774 0.0000 (  2208 PWs)   bands (ev):
+
+   -86.1507 -47.9446 -47.8403 -47.7933 -21.0579 -20.9403 -20.4912 -20.2734
+   -20.1158 -19.8735 -19.6616 -13.5857 -13.3670  -7.4850  -6.5337  -5.7512
+    -4.8720  -3.7241  -2.4678  -2.2918
+
+          k = 0.0000 0.7698 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5446 -19.5117 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.0000 0.9623 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+          k = 0.1667-0.0962 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+          k = 0.1667 0.0962 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+          k = 0.1667 0.2887 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.1667 0.4811 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6365 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.1667 0.6736 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6365 -20.2014 -20.1096 -19.9750
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.1667 0.8660 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.3333-0.1925 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5445 -19.5118 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.3333 0.0000 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.3333 0.1925 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5445 -19.5118 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.3333 0.3849 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.3333 0.5774 0.0000 (  2196 PWs)   bands (ev):
+
+   -86.1459 -47.8825 -47.8715 -47.8287 -21.2199 -20.1267 -20.0969 -20.0076
+   -19.9922 -19.9674 -19.8670 -13.2795 -13.1639  -7.0367  -6.4170  -5.5399
+    -5.1576  -4.6176  -4.0560  -2.0650
+
+          k = 0.3333 0.7698 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.5000-0.2887 0.0000 (  2208 PWs)   bands (ev):
+
+   -86.1507 -47.9446 -47.8403 -47.7933 -21.0579 -20.9403 -20.4912 -20.2734
+   -20.1158 -19.8735 -19.6616 -13.5857 -13.3670  -7.4850  -6.5337  -5.7512
+    -4.8720  -3.7241  -2.4678  -2.2918
+
+          k = 0.5000-0.0962 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5369  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.5000 0.0962 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9750
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.5000 0.2887 0.0000 (  2208 PWs)   bands (ev):
+
+   -86.1507 -47.9446 -47.8403 -47.7933 -21.0579 -20.9403 -20.4912 -20.2734
+   -20.1158 -19.8735 -19.6616 -13.5857 -13.3670  -7.4850  -6.5337  -5.7512
+    -4.8720  -3.7241  -2.4678  -2.2918
+
+          k = 0.5000 0.4811 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9750
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.5000 0.6736 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5369  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.6667-0.3849 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5445 -19.5118 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.6667-0.1925 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.6667-0.0000 0.0000 (  2196 PWs)   bands (ev):
+
+   -86.1459 -47.8825 -47.8715 -47.8287 -21.2199 -20.1267 -20.0969 -20.0076
+   -19.9922 -19.9674 -19.8670 -13.2795 -13.1639  -7.0367  -6.4170  -5.5399
+    -5.1576  -4.6176  -4.0560  -2.0650
+
+          k = 0.6667 0.1925 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6364 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.6667 0.3849 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1323 -47.8700 -47.8402 -47.7697 -20.3001 -20.1668 -20.1485 -19.9417
+   -19.5445 -19.5118 -19.4218 -14.2098 -13.6859  -6.7898  -5.8663  -5.5206
+    -4.5527  -3.3524  -2.9817  -2.8229
+
+          k = 0.6667 0.5774 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.8333-0.4811 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+          k = 0.8333-0.2887 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.8333-0.0962 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6365 -20.2014 -20.1096 -19.9750
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.8333 0.0962 0.0000 (  2187 PWs)   bands (ev):
+
+   -86.1335 -47.9090 -47.8285 -47.7953 -20.6365 -20.2014 -20.1096 -19.9749
+   -19.9159 -19.5092 -19.2075 -13.6062 -13.3613  -6.9686  -6.5368  -5.4674
+    -4.9678  -3.8833  -3.5242  -2.3617
+
+          k = 0.8333 0.2887 0.0000 (  2186 PWs)   bands (ev):
+
+   -86.1330 -47.8456 -47.8405 -47.7635 -20.4346 -19.9601 -19.9408 -19.6741
+   -19.5897 -19.5377 -19.3886 -14.4813 -13.8385  -6.4334  -5.4126  -5.2649
+    -4.9551  -3.5425  -2.8239  -2.6996
+
+          k = 0.8333 0.4811 0.0000 (  2193 PWs)   bands (ev):
+
+   -86.1381 -47.8487 -47.7759 -47.7387 -20.1254 -19.9241 -19.7856 -19.7241
+   -19.6438 -19.3008 -19.2409 -15.1759 -14.2100  -6.7842  -4.9019  -4.5943
+    -3.8162  -3.7639  -2.6560  -2.5630
+
+     Writing all to output data dir ./WS2.save/
+
+     init_run     :      0.19s CPU      0.19s WALL (       1 calls)
+     electrons    :      0.82s CPU      0.47s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.00s CPU      0.00s WALL (       1 calls)
+     wfcinit:wfcr :      0.04s CPU      0.02s WALL (       1 calls)
+     potinit      :      0.01s CPU      0.01s WALL (       1 calls)
+     hinit0       :      0.17s CPU      0.17s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :      0.82s CPU      0.47s WALL (       1 calls)
+     v_of_rho     :      0.01s CPU      0.01s WALL (       1 calls)
+     v_h          :      0.00s CPU      0.00s WALL (       1 calls)
+     v_xc         :      0.01s CPU      0.01s WALL (       1 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.00s CPU      0.00s WALL (       1 calls)
+     init_us_2:cp :      0.00s CPU      0.00s WALL (       1 calls)
+     cegterg      :      0.75s CPU      0.40s WALL (       2 calls)
+
+     Called by sum_band:
+
+     Called by *egterg:
+     cdiaghg      :      0.05s CPU      0.03s WALL (      25 calls)
+     cegterg:over :      0.11s CPU      0.06s WALL (      24 calls)
+     cegterg:upda :      0.05s CPU      0.03s WALL (      24 calls)
+     cegterg:last :      0.04s CPU      0.03s WALL (       7 calls)
+     h_psi        :      0.53s CPU      0.27s WALL (      27 calls)
+     g_psi        :      0.00s CPU      0.00s WALL (      24 calls)
+
+     Called by h_psi:
+     h_psi:calbec :      0.06s CPU      0.03s WALL (      27 calls)
+     vloc_psi     :      0.38s CPU      0.20s WALL (      27 calls)
+     add_vuspsi   :      0.08s CPU      0.03s WALL (      27 calls)
+
+     General routines
+     calbec       :      0.06s CPU      0.03s WALL (      27 calls)
+     fft          :      0.15s CPU      0.15s WALL (       3 calls)
+     fftw         :      0.36s CPU      0.19s WALL (     796 calls)
+     davcio       :      0.00s CPU      0.00s WALL (       2 calls)
+
+     Parallel routines
+
+     PWSCF        :      1.13s CPU      0.85s WALL
+
+
+   This run was terminated on:  20:40:11  21Jun2023            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL

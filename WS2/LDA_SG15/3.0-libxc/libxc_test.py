@@ -12,7 +12,7 @@ def vxc_libxc():
     #rho_FFTbox = put_FFTbox2(rho_pw2bgw, gvec_rho, [n1,n2,n3], noncolin=False)
     #rho        = ifft_g2r(rho_FFTbox)
     rho_pp = Cube("../1.1-pp/Rho.cube")
-    rho = rho_pp.data/2
+    rho = rho_pp.data
 
     # Create input
     const = 1
@@ -43,7 +43,8 @@ def vxc_libxc():
     vrho_c = ret_c['vrho'][:,0]
     zk_c   = ret_c['zk'][:,0]
 
-    vxc = zk_x + zk_c + inp["rho"]*vrho_x + inp["rho"]*vrho_c
+    #vxc = zk_x + zk_c + inp["rho"]*vrho_x + inp["rho"]*vrho_c
+    vxc = vrho_x + vrho_c
 
     vxc_FFTbox = np.reshape(vxc,(18,18,135))
     np.save('vxc_FFTbox', vxc_FFTbox)
@@ -52,16 +53,21 @@ def vxc_libxc():
 vxc_gen = vxc_libxc()
 print(vxc_gen.shape)
 vxc_pp  = Cube("../1.1-pp/Vxc.cube")
-struct  = vxc_pp.structure
+#vxc_pp  = np.load('../2.1-wfn/vxc_pw2bgw_FFTbox.npy')
+#struct  = vxc_pp.structure
 vxc_pp  = vxc_pp.data
-write_cube('vxc_libxc.cube',vxc_gen,struct)
-print(np.max(vxc_pp))
+#write_cube('vxc_libxc.cube',vxc_gen,struct)
+#print(np.max(vxc_pp))
 ratio = vxc_gen/vxc_pp
 #ratio *= vxc_pp/np.max(vxc_pp)
-write_cube('ratio.cube',ratio,struct)
+#write_cube('ratio.cube',ratio,struct)
 #print(ratio)
 #print('\n')
 print(np.max(ratio))
 print(np.min(ratio))
 print(np.average((ratio)))
+diff = np.abs(2*vxc_gen - vxc_pp)
+print(np.max(diff))
+print(np.min(diff))
+print(np.average(diff))
 #print(np.sort(ratio.flat)[-1000:])
