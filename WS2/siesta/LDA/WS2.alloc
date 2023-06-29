@@ -1,6 +1,6 @@
   
 
-Allocation summary at 2023/06/29 00:10:00.835 -07:00
+Allocation summary at 2023/06/29 12:55:12.002 -07:00
 
 Present memory all nodes :           0.000000 MB
 Added peak mem all nodes :           0.000000 MB
@@ -14,7 +14,63 @@ Maximum memory allocation:           0.000000 MB
 Occurred after allocating: 
 In routine:                
 
-Allocation summary at 2023/06/29 00:10:00.836 -07:00
+Allocation summary at 2023/06/29 12:55:12.002 -07:00
+
+Present memory all nodes :           0.000000 MB
+Added peak mem all nodes :           0.000000 MB
+Min peak memory in a node:           0.000000 MB
+Max peak memory in a node:           0.000000 MB
+
+Maximum peak of memory occurred in node:    19
+
+Present memory allocation:           0.000000 MB
+Maximum memory allocation:           0.000000 MB
+Occurred after allocating: 
+In routine:                
+
+Allocation summary at 2023/06/29 12:55:12.003 -07:00
+
+Present memory all nodes :           0.000000 MB
+Added peak mem all nodes :           0.000000 MB
+Min peak memory in a node:           0.000000 MB
+Max peak memory in a node:           0.000000 MB
+
+Maximum peak of memory occurred in node:    15
+
+Present memory allocation:           0.000000 MB
+Maximum memory allocation:           0.000000 MB
+Occurred after allocating: 
+In routine:                
+
+Allocation summary at 2023/06/29 12:55:12.003 -07:00
+
+Present memory all nodes :           0.000000 MB
+Added peak mem all nodes :           0.000000 MB
+Min peak memory in a node:           0.000000 MB
+Max peak memory in a node:           0.000000 MB
+
+Maximum peak of memory occurred in node:    31
+
+Present memory allocation:           0.000000 MB
+Maximum memory allocation:           0.000000 MB
+Occurred after allocating: 
+In routine:                
+
+Allocation summary at 2023/06/29 12:55:12.003 -07:00
+
+Present memory all nodes :           0.000000 MB
+Added peak mem all nodes :           0.000000 MB
+Min peak memory in a node:           0.000000 MB
+Max peak memory in a node:           0.000000 MB
+
+Maximum peak of memory occurred in node:     8
+
+Present memory allocation:           0.000000 MB
+Maximum memory allocation:           0.000000 MB
+Occurred after allocating: 
+In routine:                
+
+Allocation summary at 2023/06/29 12:55:12.003 -07:00
 
 Present memory all nodes :           0.000000 MB
 Added peak mem all nodes :           0.000000 MB
@@ -22,48 +78,6 @@ Min peak memory in a node:           0.000000 MB
 Max peak memory in a node:           0.000000 MB
 
 Maximum peak of memory occurred in node:    28
-
-Present memory allocation:           0.000000 MB
-Maximum memory allocation:           0.000000 MB
-Occurred after allocating: 
-In routine:                
-
-Allocation summary at 2023/06/29 00:10:00.836 -07:00
-
-Present memory all nodes :           0.000000 MB
-Added peak mem all nodes :           0.000000 MB
-Min peak memory in a node:           0.000000 MB
-Max peak memory in a node:           0.000000 MB
-
-Maximum peak of memory occurred in node:     7
-
-Present memory allocation:           0.000000 MB
-Maximum memory allocation:           0.000000 MB
-Occurred after allocating: 
-In routine:                
-
-Allocation summary at 2023/06/29 00:10:00.836 -07:00
-
-Present memory all nodes :           0.000000 MB
-Added peak mem all nodes :           0.000000 MB
-Min peak memory in a node:           0.000000 MB
-Max peak memory in a node:           0.000000 MB
-
-Maximum peak of memory occurred in node:    23
-
-Present memory allocation:           0.000000 MB
-Maximum memory allocation:           0.000000 MB
-Occurred after allocating: 
-In routine:                
-
-Allocation summary at 2023/06/29 00:10:00.836 -07:00
-
-Present memory all nodes :           0.000000 MB
-Added peak mem all nodes :           0.000000 MB
-Min peak memory in a node:           0.000000 MB
-Max peak memory in a node:           0.000000 MB
-
-Maximum peak of memory occurred in node:    12
 
 Present memory allocation:           0.000000 MB
 Maximum memory allocation:           0.000000 MB

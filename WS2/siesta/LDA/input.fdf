@@ -23,7 +23,7 @@ AtomicCoordinatesFormat Fractional
 %endblock AtomicCoordinatesAndAtomicSpecies
 
 XC.functional            LDA
-XC.authors               PZ
+XC.authors               PW92
 
 PAO.BasisSize DZP
 
