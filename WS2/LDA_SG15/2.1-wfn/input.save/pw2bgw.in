@@ -12,15 +12,15 @@
    !wfng_dk3 = 0.0
    !rhototg_flag = .true.
    !rhototg_file = 'RHOtot'
-   !rhog_flag = .true.
-   !rhog_file = 'RHO'
-   vxcg_flag = .true.
-   vxcg_file = 'VXC'
-   vxc_flag = .true.
-   vxc_file = 'vxc.dat'
+   rhog_flag = .true.
+   rhog_file = 'RHO'
+   !vxcg_flag = .false.
+   !vxcg_file = 'VXC'
+   !vxc_flag = .true.
+   !vxc_file = 'vxc.dat'
    !vxc_integral = 'r'
-   vxc_diag_nmin = 1
-   vxc_diag_nmax = 20
-   vxc_offdiag_nmin = 1
-   vxc_offdiag_nmax = 20
+   !vxc_diag_nmin = 1
+   !vxc_diag_nmax = 20
+   !vxc_offdiag_nmin = 1
+   !vxc_offdiag_nmax = 20
 /

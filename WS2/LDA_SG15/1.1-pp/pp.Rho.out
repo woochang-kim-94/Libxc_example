@@ -1,5 +1,5 @@
 
-     Program POST-PROC v.7.1 starts on 21Jun2023 at 22: 2:53 
+     Program POST-PROC v.7.1 starts on  4Jul2023 at 16:44:29 
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -15,21 +15,21 @@
      Threads/MPI process:                   256
 
      MPI processes distributed on     1 nodes
-     427771 MiB available memory on the printing compute node when the environment starts
+     486232 MiB available memory on the printing compute node when the environment starts
 
 
      Reading xml data from directory:
 
      ./WS2.save/
 
-     WARNING: libxc functional with ID   12 depends
+     WARNING: libxc functional with ID    9 depends
       on external parameters: check the user_guide of
       QE if you need to modify them or to check their
       default values.
 
      IMPORTANT: XC functional enforced from input :
-     Exchange-correlation= XC-001L-012L-000I-000I-000I-000I
-                           (   1  12   0   0   0   0   0)
+     Exchange-correlation= XC-001L-009L-000I-000I-000I-000I
+                           (   1   9   0   0   0   0   0)
      Any further DFT definition will be discarded
      Please, verify this is what you really want
 
@@ -49,10 +49,10 @@
      Writing data to be plotted to file Rho.cube
      Plot Type: 3D                     Output format: Gaussian cube
 
-     POST-PROC    :     15.69s CPU      1.57s WALL
+     POST-PROC    :     14.29s CPU      1.63s WALL
 
 
-   This run was terminated on:  22: 2:55  21Jun2023            
+   This run was terminated on:  16:44:31   4Jul2023            
 
 =------------------------------------------------------------------------------=
    JOB DONE.

@@ -18,7 +18,7 @@
    nosym = .true.
    noinv = .true.
    nbnd = 20
-   input_dft='XC-001L-009L'
+   input_dft='XC-001L-012L'
 /
 &electrons
    electron_maxstep = 100

@@ -11,8 +11,10 @@ def vxc_libxc():
     #rho_pw2bgw = np.load('../2.1-wfn/rho_pw2bgw.npy')
     #rho_FFTbox = put_FFTbox2(rho_pw2bgw, gvec_rho, [n1,n2,n3], noncolin=False)
     #rho        = ifft_g2r(rho_FFTbox)
-    rho_pp = Cube("../1.1-pp/Rho.cube")
-    rho = rho_pp.data
+    #rho_pp = Cube("../1.1-pp/Rho.cube")
+    #rho = rho_pp.data
+    rho_pw2bgw = np.load("../2.1-wfn/rhor_pw2bgw.npy")
+    rho = rho_pw2bgw[0,:,:,:]
 
     # Create input
     const = 1
@@ -24,7 +26,7 @@ def vxc_libxc():
     inp["rho"] = const*rho_flatten
 
     # Build functional
-    func_c = pylibxc.LibXCFunctional("LDA_C_PW", "unpolarized")
+    func_c = pylibxc.LibXCFunctional("LDA_C_PZ", "unpolarized")
     func_x = pylibxc.LibXCFunctional("LDA_X", "unpolarized")
 
     # Compute exchange part
@@ -53,9 +55,11 @@ def vxc_libxc():
 vxc_gen = vxc_libxc()
 print(vxc_gen.shape)
 vxc_pp  = Cube("../1.1-pp/Vxc.cube")
-#vxc_pp  = np.load('../2.1-wfn/vxc_pw2bgw_FFTbox.npy')
-#struct  = vxc_pp.structure
 vxc_pp  = vxc_pp.data
+#vxc_pp  = np.load('../2.1-wfn/vxcr_pw2bgw.npy')
+#vxc_pp  = vxc_pp[0,:,:,:]
+print(vxc_pp.shape)
+#struct  = vxc_pp.structure
 #write_cube('vxc_libxc.cube',vxc_gen,struct)
 #print(np.max(vxc_pp))
 ratio = vxc_gen/vxc_pp

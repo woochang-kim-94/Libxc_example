@@ -16,7 +16,7 @@
 !   noncolin = .true.
    nosym = .true.
    noinv = .true.
-   input_dft='XC-001L-012L'
+   input_dft='XC-001L-009L'
 /
 &electrons
    electron_maxstep = 100
