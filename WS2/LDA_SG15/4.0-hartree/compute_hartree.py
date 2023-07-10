@@ -1,25 +1,14 @@
-import pylibxc
 import numpy as np
 from fft_mod import put_FFTbox2, ifft_g2r
-from pymatgen.io.cube import Cube
 from write_cube_mod import write_cube
 
 
 def main():
-    rho_pw2bgw = np.load("../2.1-wfn/rhor_pw2bgw.npy")
-    rho_t = np.real(rho_pw2bgw[0,:,:,:])
+    rho_g = np.load("../2.1-wfn/rho_pw2bgw.npy")
+    gvec  = np.load("../2.1-wfn/rho_gvec.npy"
+
 
     frac = 1e-4
-    rho_f = rho_t * frac
-    rho_r = rho_t - rho_f
-
-    vxc_rho_t, fxc_rho_t = get_vxc(rho_t)
-    vxc_rho_r, fxc_rho_r = get_vxc(rho_r)
-    #vxc_approx  = vxc_rho_t - fxc_rho_t*rho_f
-    #vxc_approx2 = vxc_rho_t - vxc_rho_f
-    vsub        =  vxc_rho_t - vxc_rho_r
-    vsub_aprox  =  fxc_rho_t*rho_f
-    #vsub_aprox2 =  fxc_rho_r*rho_f
 
     diff = np.abs(vsub - vsub_aprox)
     print('Error = abs(vsub - vsub_aprox) in Hartree')
@@ -34,6 +23,23 @@ def main():
     #print('avg(diff)',np.average(diff))
     #print(np.sort(ratio.flat)[-1000:])
     return
+
+
+def get_vh(rho_g, gvec):
+    """
+    --Input--
+    rho_g : float(:,:,:)
+        momentum space charge density in Hartree Atomic Unit
+
+    gvec : int(ng,3)
+        momentum space charge density in Hartree Atomic Unit
+
+    --Output--
+    vh : float(:,:,:)
+
+    """
+    for
+
 
 def get_vxc(rho):
     """
