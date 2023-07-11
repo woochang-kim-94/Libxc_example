@@ -1,0 +1,14 @@
+&inputpp
+   prefix  = 'WS2'
+   outdir='.'
+   filplot = 'Vb'
+   plot_num = 2
+/
+&plot
+  nfile=1
+  filepp(1)='Vb'
+  weight(1)=1.0
+  iflag=3
+  output_format=6
+  fileout='Vb.cube'
+/

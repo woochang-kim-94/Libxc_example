@@ -27,7 +27,12 @@ def fft_r2g(unkr_FFTbox):
     return unkg_FFTbox
 
 def ifft_g2r(unkg_FFTbox):
-    """ ifft from G space to R space
+    """
+    ifft from G space to R space
+
+    with an input array x[l], the output array y[k] satisfy
+    y[k] = np.sum(x * np.exp(2j * np.pi * k * np.arange(n)/n)) / len(x)
+
 
     ---Input---
     unkg_FFTbox : cdouble(ispin,N1,N2,N3)

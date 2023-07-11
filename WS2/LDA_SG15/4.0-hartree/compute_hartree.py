@@ -1,21 +1,42 @@
 import numpy as np
 from fft_mod import put_FFTbox2, ifft_g2r
-from write_cube_mod import write_cube
+from pymatgen.io.cube import Cube
+bohr2ang = 0.529177
 
 
 def main():
     rho_g = np.load("../2.1-wfn/rho_pw2bgw.npy")
-    gvec  = np.load("../2.1-wfn/rho_gvec.npy"
+    igvec  = np.load("../2.1-wfn/rho_gvec.npy")
+    n1, n2, n3 = [18, 18, 135]
+    nfft = n1*n2*n3
 
+    vbh = Cube("../1.1-pp/Vh.cube") #just for struct
+    struct = vbh.structure
+    vol    = vbh.volume/(bohr2ang**3)   # in Bohr^3
+    cell   = struct.lattice._matrix*(1/bohr2ang) # in Bohr
+    bcell  = 2*np.pi*np.linalg.inv(cell).T # in Bohr^-1
 
-    frac = 1e-4
+    # debug
+    rho_g /= (vol/nfft)
+    rho_g_FFTbox = put_FFTbox2(rho_g, igvec, [n1, n2, n3], noncolin=False)
+    rho_r = ifft_g2r(rho_g_FFTbox)
+    print('np.sum(rho_r)*(vol/nfft)',np.sum(rho_r)*(vol/nfft))
+    # debug
 
-    diff = np.abs(vsub - vsub_aprox)
+    vh_r   = get_vh(rho_g, igvec, bcell)
+
+    vbh_r = vbh.data/2 # in Hartree
+
+    diff = np.abs(vbh_r-vh_r)
     print('Error = abs(vsub - vsub_aprox) in Hartree')
     print('max(Error)',np.max(diff))
     print('min(Error)',np.min(diff))
     print('avg(Error)',np.average(diff))
-    #diff = np.abs(vsub - vsub_aprox2)
+    diff = np.abs(vbh_r/(vh_r))
+    print('Ratio = abs(vbh_r/vh_r) in Hartree')
+    print('max(Error)',np.max(diff))
+    print('min(Error)',np.min(diff))
+    print('avg(Error)',np.average(diff))
     #print()
     #print('diff = abs(vsub - vsub_aprox) in Hartree')
     #print('max(diff)',np.max(diff))
@@ -25,20 +46,36 @@ def main():
     return
 
 
-def get_vh(rho_g, gvec):
+def get_vh(rho_g, igvec, bcell):
     """
     --Input--
-    rho_g : float(:,:,:)
+    rho_g : complex128(ng)
         momentum space charge density in Hartree Atomic Unit
 
     gvec : int(ng,3)
         momentum space charge density in Hartree Atomic Unit
 
+    bcell_in: float64(3,3)
+        reciprocal lattice vectors (bohr^{-1})
+
     --Output--
     vh : float(:,:,:)
 
     """
-    for
+    vh_g      = np.zeros_like(rho_g)
+    gvec      = igvec.dot(bcell)
+    gvec_sq   = np.einsum('ix,ix->i', gvec, gvec) # bohr^{-1}  or Ry
+    for ig, g_sq in enumerate(gvec_sq):
+        if g_sq < 1e-12:
+            vh_g[ig] = 0
+        else:
+            vh_g[ig] = 4*np.pi*rho_g[ig]/g_sq
+
+    n1, n2, n3 = [18, 18, 135]
+    vh_g_FFTbox = put_FFTbox2(vh_g, igvec, [n1, n2, n3], noncolin=False)
+    vh_r = ifft_g2r(vh_g_FFTbox)
+    return np.real(vh_r[0,:,:,:])
+
 
 
 def get_vxc(rho):
