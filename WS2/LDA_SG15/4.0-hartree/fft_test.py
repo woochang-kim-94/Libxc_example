@@ -7,56 +7,42 @@ bohr2ang = 0.529177249
 def main():
     #rho_g = np.load("../2.1-wfn/rho_pw2bgw.npy")
     #igvec  = np.load("../2.1-wfn/rho_gvec.npy")
-    igvec = np.load('../1-scf/igvec.npy')
     rho_g = np.load('../1-scf/rhog.npy')
+    igvec = np.load('../1-scf/igvec.npy')
     n1, n2, n3 = [18, 18, 135]
     nfft = n1*n2*n3
 
-    vbh = Cube("../1.1-pp/Vh.cube") #just for struct
-    struct = vbh.structure
-    vol    = vbh.volume/(bohr2ang**3)   # in Bohr^3
-    vol     = 1449.7341
-    cell   = struct.lattice._matrix*(1/bohr2ang) # in Bohr
-    bcell  = 2*np.pi*np.linalg.inv(cell).T # in Bohr^-1
-
-    # debug
-    #rho_g /= (vol/nfft)
-    rho_g *= (nfft)
-    rho_g_FFTbox = put_FFTbox2(rho_g, igvec, [n1, n2, n3], noncolin=False)
-    rho_r_FFTbox = ifft_g2r(rho_g_FFTbox)
-    #rho_r_FFTbox = np.zeros((1,n1,n2,n3), dtype=np.cdouble)
     #rho = Cube("../1.1-pp/Rho.cube") #just for struct
-    #rho_r_FFTbox[0,:,:,:] = rho.data
-    print('sum(rho_r)*(vol/nfft)',np.sum(rho_r_FFTbox)*(vol/nfft))
+    #vbh = Cube("../1.1-pp/Vh.cube") #just for struct
+    #struct = vbh.structure
+    #vol    = vbh.volume/(bohr2ang**3)   # in Bohr^3
+    #vol     = 1449.7341
+    #cell   = struct.lattice._matrix*(1/bohr2ang) # in Bohr
+    #bcell  = 2*np.pi*np.linalg.inv(cell).T # in Bohr^-1
+
     # debug
-    rho_g_FFTbox  = fft_r2g(rho_r_FFTbox)
-    rho_g, igvec  = flat_FFTbox(rho_g_FFTbox)
-    vh_r   = get_vh(rho_g, igvec, bcell)
-    rho_r  = rho_r_FFTbox
-    Eh     = np.real(0.5*np.sum(vh_r*rho_r*(vol/nfft)))
+    rho_g_FFTbox = put_FFTbox2(rho_g, igvec, [n1, n2, n3], noncolin=False) # zero_init
+    rho_r        = ifft_g2r(rho_g_FFTbox)
+    rho_g_test   = fft_r2g(rho_r) # zero_init
+    rho_g_test_flatten, gvecs = flat_FFTbox(rho_g_test)
+    rho_g_FFTbox_2 = put_FFTbox2(rho_g_test_flatten, gvecs, [n1, n2, n3], noncolin=False) # zero_init
 
-    vbh_r = vbh.data/2 # from Ry to Hartree
-    Eh_ref = np.real(0.5*np.sum(vbh_r*rho_r*(vol/nfft)))
 
-    diff = np.abs(vbh_r-vh_r)
-    print(f'Eh_ref = {2*Eh_ref} in Ry')
-    print(f'Eh_ref-Eh = {2*(Eh_ref-Eh)} in Ry')
-    print(f'Eh_ref-Eh/Eh_ref = {(Eh_ref-Eh)/Eh_ref} ')
-    print('Error = abs(vh_qe - vh) in Hartree')
+
+
+
+    # Check if f(g) --ifft--> g(r) --fft--> h(g) == f(g)
+
+    diff = np.abs(rho_g_FFTbox_2 - rho_g_test)
+    print('Error = abs(rho_g_FFTbox - rho_g_test) ')
     print('max(Error)',np.max(diff))
     print('min(Error)',np.min(diff))
     print('avg(Error)',np.average(diff))
-    diff = np.abs(vbh_r/(vh_r))
-    print('Ratio = abs(vbh_r/vh_r)')
-    print('max(Error)',np.max(diff))
-    print('min(Error)',np.min(diff))
-    print('avg(Error)',np.average(diff))
-    #print()
-    #print('diff = abs(vsub - vsub_aprox) in Hartree')
-    #print('max(diff)',np.max(diff))
-    #print('min(diff)',np.min(diff))
-    #print('avg(diff)',np.average(diff))
-    #print(np.sort(ratio.flat)[-1000:])
+    #diff = np.abs(vbh_r/(vh_r))
+    #print('Ratio = abs(vbh_r/vh_r)')
+    #print('max(Error)',np.max(diff))
+    #print('min(Error)',np.min(diff))
+    #print('avg(Error)',np.average(diff))
     return
 
 

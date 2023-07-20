@@ -1,7 +1,54 @@
 import os
 import time
 import numpy as np
-from numpy.fft import fftn, ifftn, ifftshift
+from numpy.fft import fftn, ifftn, fftshift, ifftshift
+
+
+def flat_FFTbox(unkg_FFTbox):
+    """
+    Generate a flattened 1d array 'unkg' and corresponding igvecs from unkg_FFTbox.
+    Assume unkg_FFTbox has its zero-frequency component in unkg_FFTbox[ispin,0,0,0].
+    This functions is a kind of the inverse function of 'put_FFTbox'.
+    Note, because of the zero padding in unkg_FFTbox, unkg may have lots of zeros.
+
+    --Input--
+    unkg_FFTbox : cdouble(nspin,N1,N2,N3)
+        unkg in FFTbox
+        for colinear case, nspin = 1
+        for non-colinear case, nspin = 2
+
+    --Output--
+    unkg : cdouble(nspin*N1*N2*N3)
+        for non-colinear case, the first half is for spin-up,
+                               the second half is for spin-dw.
+    gvecs_sym : int(N1*N2*N3,3)
+        array of miller index (h,k,l)
+    """
+    nspin, n1, n2, n3 = unkg_FFTbox.shape
+    ng = n1*n2*n3
+    h_max, k_max, l_max = n1//2, n2//2, n3//2
+
+    hs, ks, ls = np.unravel_index(np.array(range(ng)),(n1,n2,n3))
+
+    #generate zero starting positive index. it is just for reshaping
+    gvecs_pos = np.concatenate([[hs],[ks],[ls]], axis = 0).T
+    hkl2flat = ( n3 * (n2 * gvecs_pos[:, 0] + gvecs_pos[:, 1]) \
+                                                    + gvecs_pos[:, 2])
+    hs[hs>=h_max] -= n1
+    ks[ks>=k_max] -= n2
+    ls[ls>=l_max] -= n3
+
+    #generate zero starting symmetric index. it will be returned
+    gvecs_sym = np.concatenate([[hs],[ks],[ls]], axis = 0).T
+
+    unkg = np.zeros(nspin*ng,dtype=np.cdouble)
+    for ispin in range(nspin):
+        gstart =       ispin*ng
+        gend   = (ispin + 1)*ng
+        unkg[gstart:gend] = unkg_FFTbox[ispin,:,:,:].flat[hkl2flat]
+
+    return unkg, gvecs_sym
+
 
 def fft_r2g(unkr_FFTbox):
     """ fft from R space to G space
@@ -22,7 +69,7 @@ def fft_r2g(unkr_FFTbox):
     for ispin in range(nspin):
         unkg_FFTbox[ispin,:,:,:] = fftn(unkr_FFTbox[ispin,:,:,:])
     end   = time.time()
-    print(f'\nIFFT time', end-start)
+    print(f'\nFFT time', end-start)
 
     return unkg_FFTbox
 
@@ -32,6 +79,9 @@ def ifft_g2r(unkg_FFTbox):
 
     with an input array x[l], the output array y[k] satisfy
     y[k] = np.sum(x * np.exp(2j * np.pi * k * np.arange(n)/n)) / len(x)
+
+    Note unkg_FFTbox have the unk(G=0) component as the first element
+    in the unkg_FFTbox[ispin,0,0,0].
 
 
     ---Input---
@@ -75,6 +125,10 @@ def put_FFTbox2(unkg, gvecs, FFTgrid, noncolin, savedir='./', savefn=False):
         unkg in FFTbox
         for colinear case, nspin = 1
         for non-colinear case, nspin = 2
+
+        unkg_FFTbox[ispin,0,0,0] = unk_ispin(G=0),
+        which is a zero frequency start array.
+
 
     """
     #fn = savedir+f'./Unkg_FFTbox_k{ik}.npy'
@@ -170,10 +224,3 @@ def put_FFTbox(ik, FFTgrid, savedir='./'):
         print(f'\nFFTBOX time', end-start)
 
         return unkg_FFTbox
-
-if __name__=='__main__':
-    ik = 1
-    FFTgrid = [495, 495, 83]
-    unkg_FFTbox1 =  put_FFTbox(ik, FFTgrid, savedir='../../data/')
-    unkg_FFTbox2 =  put_FFTbox2(ik, FFTgrid, savedir='../../data/')
-    print(np.allclose(unkg_FFTbox2,unkg_FFTbox1))
