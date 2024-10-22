@@ -28,12 +28,15 @@ def main():
     #rho = Cube("../1.1-pp/Rho.cube") #just for struct
     #rho_r_FFTbox[0,:,:,:] = rho.data
     print('sum(rho_r)*(vol/nfft)',np.sum(rho_r_FFTbox)*(vol/nfft))
+    #    print('vol/nfft',vol/nfft)
     # debug
-    rho_g_FFTbox  = fft_r2g(rho_r_FFTbox)
+    rho_g_FFTbox  = (vol/nfft)*fft_r2g(rho_r_FFTbox)
     rho_g, igvec  = flat_FFTbox(rho_g_FFTbox)
-    vh_r   = get_vh(rho_g, igvec, bcell)
+    print('rho_g[0]',rho_g[0])
+    vh_r   = get_vh(rho_g, igvec, bcell, vol, nfft)
     rho_r  = rho_r_FFTbox
     Eh     = np.real(0.5*np.sum(vh_r*rho_r*(vol/nfft)))
+    EhG    = get_Eh(rho_g, igvec, bcell, vol)
 
     vbh_r = vbh.data/2 # from Ry to Hartree
     Eh_ref = np.real(0.5*np.sum(vbh_r*rho_r*(vol/nfft)))
@@ -57,10 +60,46 @@ def main():
     #print('min(diff)',np.min(diff))
     #print('avg(diff)',np.average(diff))
     #print(np.sort(ratio.flat)[-1000:])
+    print("Added part on Oct 20 2024")
+    print("Avg of vh_r: ",np.average(vh_r))
+    print("Avg of vbh_r: ",np.average(vbh_r))
+    print("Eh_ref: ",Eh_ref, " in Hartree")
+    print("Eh: ",Eh, " in Hartree")
+    print("EhG: ",EhG, " in Hartree") 
+
     return
 
 
-def get_vh(rho_g, igvec, bcell):
+def get_Eh(rho_g, igvec, bcell, vol):
+    """
+    --Input--
+    rho_g : complex128(ng)
+        momentum space charge density in Hartree Atomic Unit
+
+    gvec : int(ng,3)
+        momentum space charge density in Hartree Atomic Unit
+
+    bcell_in: float64(3,3)
+        reciprocal lattice vectors (bohr^{-1})
+
+    --Output--
+    Eh : float
+        Hartree energy
+    """
+    gvec      = igvec.dot(bcell)
+    gvec_sq   = np.einsum('ix,ix->i', gvec, gvec) # bohr^{-1}  or Ry
+    Eh = 0.0
+    for ig, g_sq in enumerate(gvec_sq):
+        if g_sq < 1e-6:
+            continue
+        else:
+            Eh += 2*np.pi*(np.abs(rho_g[ig])**2)/g_sq
+    Eh /= vol
+
+    return Eh
+
+
+def get_vh(rho_g, igvec, bcell, vol, nfft):
     """
     --Input--
     rho_g : complex128(ng)
@@ -87,7 +126,7 @@ def get_vh(rho_g, igvec, bcell):
 
     n1, n2, n3 = [18, 18, 135]
     vh_g_FFTbox = put_FFTbox2(vh_g, igvec, [n1, n2, n3], noncolin=False)
-    vh_r = ifft_g2r(vh_g_FFTbox)
+    vh_r = (nfft/vol)*ifft_g2r(vh_g_FFTbox)
     return np.real(vh_r[0,:,:,:])
 
 

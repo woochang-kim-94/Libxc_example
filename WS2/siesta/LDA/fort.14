@@ -16,29 +16,29 @@ siesta:
   netcdf4_mpi: "no"
   metis: "no"
   chess: "no"
-  elpa: "yes"
+  elpa: "no"
   flook: "no"
   pexsi: "no"
 
 energies:
-  Ebs:          -0.76939813E+02
+  Ebs:          -0.76954969E+02
   Eions:           0.79069175E+03
-  Ena:           0.12489850E+03
-  Ekin:           0.21692091E+03
-  Enl:          -0.87935973E+02
+  Ena:           0.12491589E+03
+  Ekin:           0.21691121E+03
+  Enl:          -0.87941601E+02
   Eso:           0.00000000E+00
   Edftu:           0.00000000E+00
-  DEna:           0.39296272E+01
-  DUscf:           0.22013667E+00
+  DEna:           0.39254911E+01
+  DUscf:           0.21969294E+00
   DUext:           0.00000000E+00
-  Exc:          -0.50898787E+02
+  Exc:          -0.50878399E+02
   Ecorrec:           0.00000000E+00
   Emadel:           0.00000000E+00
   Emeta:           0.00000000E+00
   Emolmec:           0.00000000E+00
   Ekinion:           0.00000000E+00
-  Eharris:          -0.58355734E+03
-  Etot:          -0.58355734E+03
-  FreeEng:          -0.58355734E+03
+  Eharris:          -0.58353947E+03
+  Etot:          -0.58353947E+03
+  FreeEng:          -0.58353947E+03
 
 ...

@@ -72,12 +72,18 @@ def get_vh(rho_g, igvec, bcell):
     vh_g      = np.zeros_like(rho_g)
     gvec      = igvec.dot(bcell)
     gvec_sq   = np.einsum('ix,ix->i', gvec, gvec) # bohr^{-1}  or Ry
+    print(gvec_sq)
+    zero_indices = gvec_sq < 1e-12
+    print(zero_indices)
+    vh_g[~zero_indices] = 4*np.pi*rho_g[~zero_indices]/gvec_sq[~zero_indices]
+    vh_g[zero_indices]  = 0.0
+    """
     for ig, g_sq in enumerate(gvec_sq):
         if g_sq < 1e-12:
             vh_g[ig] = 0
         else:
             vh_g[ig] = 4*np.pi*rho_g[ig]/g_sq
-
+    """
     n1, n2, n3 = [18, 18, 135]
     vh_g_FFTbox = put_FFTbox2(vh_g, igvec, [n1, n2, n3], noncolin=False)
     vh_r = ifft_g2r(vh_g_FFTbox)

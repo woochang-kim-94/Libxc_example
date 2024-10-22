@@ -1,20 +1,20 @@
 Start of run             0.000
--------------- end of scf step             0.713
--------------- end of scf step             0.753
--------------- end of scf step             0.790
--------------- end of scf step             0.834
--------------- end of scf step             0.871
--------------- end of scf step             0.908
--------------- end of scf step             0.953
--------------- end of scf step             0.999
--------------- end of scf step             1.043
--------------- end of scf step             1.080
--------------- end of scf step             1.117
--------------- end of scf step             1.161
--------------- end of scf step             1.204
--------------- end of scf step             1.240
--------------- end of scf step             1.277
--------------- end of scf step             1.318
--------------- end of scf step             1.361
---- end of geometry step             1.416
-End of run             2.187
+-------------- end of scf step             1.533
+-------------- end of scf step             1.655
+-------------- end of scf step             1.769
+-------------- end of scf step             1.892
+-------------- end of scf step             2.006
+-------------- end of scf step             2.117
+-------------- end of scf step             2.229
+-------------- end of scf step             2.343
+-------------- end of scf step             2.461
+-------------- end of scf step             2.578
+-------------- end of scf step             2.696
+-------------- end of scf step             2.814
+-------------- end of scf step             2.928
+-------------- end of scf step             3.050
+-------------- end of scf step             3.168
+-------------- end of scf step             3.285
+-------------- end of scf step             3.404
+--- end of geometry step             3.726
+End of run             4.215

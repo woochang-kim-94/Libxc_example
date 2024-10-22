@@ -1,0 +1,20 @@
+sum(rho_r)*(vol/nfft) (39.999893200894924+0j)
+
+FFT time 0.001336812973022461
+[0.         0.01768816 0.07075265 ... 1.64471906 1.55627824 1.50321375]
+[ True False False ... False False False]
+
+FFTBOX time 0.0008785724639892578
+
+IFFT time 0.0019943714141845703
+Eh_ref = 2020.0347291111416 in Ry
+Eh_ref-Eh = 0.009656602702307282 in Ry
+Eh_ref-Eh/Eh_ref = 4.780414199391707e-06 
+Error = abs(vsub - vsub_aprox) in Hartree
+max(Error) 0.002941014702457778
+min(Error) 5.648637113608856e-10
+avg(Error) 0.00019808022879096483
+Ratio = abs(vbh_r/vh_r)
+max(Error) 1.000053763042361
+min(Error) 0.9999419834927064
+avg(Error) 1.0000044062857678

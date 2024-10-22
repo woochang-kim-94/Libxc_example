@@ -35,7 +35,7 @@ def vxc_libxc():
     inp["rho"] = const*rho_flatten
 
     # Build functional
-    func_c_name  = "LDA_C_PW"
+    func_c_name  = "LDA_C_PZ"
     print(' Functional name of correlation part: ',func_c_name)
     func_c = pylibxc.LibXCFunctional(func_c_name, "unpolarized")
     func_x = pylibxc.LibXCFunctional("LDA_X", "unpolarized")

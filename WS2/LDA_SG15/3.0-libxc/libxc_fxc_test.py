@@ -26,6 +26,14 @@ def main():
     print('max(Error)',np.max(diff))
     print('min(Error)',np.min(diff))
     print('avg(Error)',np.average(diff))
+
+    fn_vsub = 'vxc_sub'
+    print('Save ',fn_vsub)
+    np.save(fn_vsub, vsub)
+
+    fn_vsub_aprox = 'vxc_sub_linear'
+    print('Save ',fn_vsub_aprox)
+    np.save(fn_vsub_aprox, vsub_aprox)
     #diff = np.abs(vsub - vsub_aprox2)
     #print()
     #print('diff = abs(vsub - vsub_aprox) in Hartree')

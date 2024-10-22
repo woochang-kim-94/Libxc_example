@@ -23,11 +23,11 @@ AtomicCoordinatesFormat Fractional
 %endblock AtomicCoordinatesAndAtomicSpecies
 
 XC.functional            LDA
-XC.authors               PW92
+XC.authors               PZ
 
 PAO.BasisSize DZP
 
-MeshCutoff               160.0 Ry
+MeshCutoff               1000 Ry
 OccupationFunction       MP
 OccupationMPOrder        1
 ElectronicTemperature    0.000001 eV
